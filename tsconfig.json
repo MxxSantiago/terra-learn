@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"lib": ["dom", "dom.iterable", "esnext", "ES2015.Reflect"],
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"jsx": "preserve",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node",
+		"module": "esnext",
+		"resolveJsonModule": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./source/*"],
+			"@core/*": ["./core/*"]
+		}
+	},
+	"files": ["./source/polyfill.ts"],
+	"include": ["./source/**/*", "./core/**/*", "./environment.d.ts"],
+	"exclude": ["./node_modules/**/*"]
+}
