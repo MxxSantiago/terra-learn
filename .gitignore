@@ -4,3 +4,9 @@ package-lock.json
 
 # build
 build
+
+# environment
+.env
+.env.local
+.env.development
+.env.production
