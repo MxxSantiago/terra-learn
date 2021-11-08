@@ -140,8 +140,7 @@ const PluginsConfig = {
 		FIREBASE_PROJECT_ID: false,
 		FIREBASE_STORAGE_BUCKET: false,
 		FIREBASE_MESSAGING_SENDER_ID: false,
-		FIREBASE_ID: false,
-		FIREBASE_TOKEN: false,
+		FIREBASE_APP_ID: false,
 	},
 	HTML_PLUGIN: {
 		template: path.join(PUBLIC_PATH, 'index.html'),
@@ -171,7 +170,7 @@ const PluginsConfig = {
 
 const PATH_ALIAS = {
 	[PATH_PREFIX]: SOURCE_PATH,
-	['@package']: path.join(ROOT_PATH, 'package'),
+	['@core']: path.join(ROOT_PATH, 'core'),
 };
 
 module.exports = {
