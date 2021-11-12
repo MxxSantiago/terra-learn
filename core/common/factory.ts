@@ -72,10 +72,8 @@ interface InjectProvidersArguments<Actions> {
 }
 export function injectProviders<Actions>(args: InjectProvidersArguments<Actions>): Actions {
 	const { constructor, instance, providers } = args;
-	const providerProperties = Reflect.getMetadata(
-		Metadata.PROVIDER_PROPERTIES,
-		constructor.prototype,
-	);
+	const providerProperties =
+		Reflect.getMetadata(Metadata.PROVIDER_PROPERTIES, constructor.prototype) || [];
 	const providerKeys = Object.keys(providers);
 
 	providerKeys.forEach((providerKey) => {
@@ -90,6 +88,29 @@ export function injectProviders<Actions>(args: InjectProvidersArguments<Actions>
 	return instance;
 }
 
+export function composeExports(exports: Array<new () => any>, instances: any): any {
+	return exports.reduce((prev, _export) => {
+		return {
+			[_export.name]:
+				instances[
+					Object.keys(instances).filter(
+						(instanceKey) => instances[instanceKey] instanceof _export,
+					)[0]
+				],
+		};
+	}, {});
+}
+
+export function composeImportedProviders(imports: Array<string>) {
+	return imports.reduce((prev, _import) => {
+		const { exports } = moduleContext.get(_import);
+		return {
+			...prev,
+			...exports,
+		};
+	}, {});
+}
+
 interface ModuleFactoryArguments<Actions, Selectors> {
 	name?: string;
 	reducer: Function;
@@ -97,17 +118,31 @@ interface ModuleFactoryArguments<Actions, Selectors> {
 	component: FC | Component;
 	selectors: new () => Selectors;
 	providers: Array<new () => any>;
+	imports?: Array<string>;
+	exports?: Array<new () => any>;
 }
+
 export function moduleFactory<Actions, Selectors>(
 	args: ModuleFactoryArguments<Actions, Selectors>,
 ): string {
-	const { actions, selectors, providers, reducer, name, component } = args;
+	const {
+		actions,
+		selectors,
+		providers,
+		reducer,
+		name,
+		component,
+		exports = [],
+		imports = [],
+	} = args;
+
 	const token = name ? undefined : uuid();
 	const key = token || name;
+
 	const instances = {
 		actions: actionsFactory<Actions>(actions),
 		selectors: selectorsFactory<Selectors>(selectors),
-		providers: providersFactory(providers),
+		providers: { ...providersFactory(providers), ...composeImportedProviders(imports) },
 	};
 
 	instances.actions = injectProviders({
@@ -121,6 +156,7 @@ export function moduleFactory<Actions, Selectors>(
 		...instances,
 		reducer,
 		component,
+		exports: composeExports(exports, instances.providers),
 	});
 
 	return key;
