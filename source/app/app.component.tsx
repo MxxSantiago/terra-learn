@@ -1,18 +1,41 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import type { FC } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-interface AppProps {
-	modules: { [name: string]: FC<any> };
-}
+import { getSelectors } from '@core/common/getters';
+import type { AppDefaultProps } from '@core/types/common';
 
-const App: FC<AppProps> = ({ modules }: AppProps) => {
-	const { Main } = modules;
+import PrivateRoute from '@/components/utils/private-route';
+import PublicRoute from '@/components/utils/public-route';
+
+import { authModule } from '@/modules/auth/auth.module';
+import { AuthSelectors } from '@/modules/auth/auth.selectors';
+
+interface AppProps {}
+
+const App: FC<AppProps & AppDefaultProps> = ({ modules }) => {
+	const { Main, Auth } = modules;
+	const authSelectors = getSelectors<AuthSelectors>(authModule);
+	const auth = useSelector(authSelectors.selectAuth);
 
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path='/' exact component={Main} />
+				<PrivateRoute
+					/* allowOn={auth?.credential} */
+					allowOn={true}
+					path='/'
+					exact
+					component={Main}
+					/* fallback={<Redirect to='/login' />} */
+				/>
+				<PublicRoute
+					/* disallowOn={auth?.credential} */
+					path='/'
+					component={Auth}
+					/* fallback={<Redirect to='/' />} */
+				/>
 			</Switch>
 		</BrowserRouter>
 	);

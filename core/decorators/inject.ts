@@ -1,4 +1,4 @@
-import { Metadata } from '@core/common/enums';
+import { Metadata } from '@core/enums';
 
 export function Inject(): PropertyDecorator {
 	return function (target: any, key: string | symbol) {

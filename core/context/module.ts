@@ -1,3 +1,4 @@
-import { Registry } from '@core/utils/registry';
+import { Context } from '@core/utils/context';
+import type { Module } from '@core/types/module';
 
-export const moduleContext = new Registry<any>();
+export const moduleContext = new Context<Module>();

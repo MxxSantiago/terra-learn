@@ -1,11 +1,13 @@
-export class Registry<T> {
-	private store: { [key: string]: T };
+import { Index } from '@core/types/common';
+
+export class Context<T> {
+	private store: Index<T>;
 
 	public constructor() {
 		this.store = {};
 	}
 
-	public register(key: string, value: T) {
+	public set(key: string, value: T) {
 		this.store[key] = value;
 	}
 
