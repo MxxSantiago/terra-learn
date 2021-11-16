@@ -2,6 +2,7 @@ import React from 'react';
 import type { FC } from 'react';
 import { Box, Flex, Grid, Heading, HStack, Text } from '@chakra-ui/layout';
 import { Tag } from '@chakra-ui/tag';
+import TeamCard from '../molecules/team-card';
 
 interface TeamsProps {}
 
@@ -12,144 +13,46 @@ const Teams: FC<TeamsProps> = ({}: TeamsProps) => {
 				Teams
 			</Heading>
 			<Grid templateColumns='1fr 1fr 1fr' gap='4'>
-				<Box
-					display='flex'
-					flexDirection='row'
-					background='gray.700'
-					rounded='base'
-					overflow='hidden'
-				>
-					<Box p='4' flex='1'>
-						<Heading fontSize='xl' marginBottom='2'>
-							Dick suckers
-						</Heading>
-						<Text>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum accusantium quasi
-							neque deleniti pariatur repellendus nulla adipisci reiciendis mollitia obcaecati fuga,
-							culpa delectus magni eligendi!
-						</Text>
-						<HStack marginTop='4'>
-							<Tag>Dick</Tag>
-							<Tag>Porn</Tag>
-							<Tag>Tits</Tag>
-						</HStack>
-					</Box>
-				</Box>
-				<Box
-					display='flex'
-					flexDirection='row'
-					background='gray.700'
-					rounded='base'
-					overflow='hidden'
-				>
-					<Box p='4' flex='1'>
-						<Heading fontSize='xl' marginBottom='2'>
-							Dick suckers
-						</Heading>
-						<Text>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum accusantium quasi
-							neque deleniti pariatur repellendus nulla adipisci reiciendis mollitia obcaecati fuga,
-							culpa delectus magni eligendi!
-						</Text>
-						<HStack marginTop='4'>
-							<Tag>Dick</Tag>
-							<Tag>Porn</Tag>
-							<Tag>Tits</Tag>
-						</HStack>
-					</Box>
-				</Box>
-				<Box
-					display='flex'
-					flexDirection='row'
-					background='gray.700'
-					rounded='base'
-					overflow='hidden'
-				>
-					<Box p='4' flex='1'>
-						<Heading fontSize='xl' marginBottom='2'>
-							Dick suckers
-						</Heading>
-						<Text>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum accusantium quasi
-							neque deleniti pariatur repellendus nulla adipisci reiciendis mollitia obcaecati fuga,
-							culpa delectus magni eligendi!
-						</Text>
-						<HStack marginTop='4'>
-							<Tag>Dick</Tag>
-							<Tag>Porn</Tag>
-							<Tag>Tits</Tag>
-						</HStack>
-					</Box>
-				</Box>
-				<Box
-					display='flex'
-					flexDirection='row'
-					background='gray.700'
-					rounded='base'
-					overflow='hidden'
-				>
-					<Box p='4' flex='1'>
-						<Heading fontSize='xl' marginBottom='2'>
-							Dick suckers
-						</Heading>
-						<Text>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum accusantium quasi
-							neque deleniti pariatur repellendus nulla adipisci reiciendis mollitia obcaecati fuga,
-							culpa delectus magni eligendi!
-						</Text>
-						<HStack marginTop='4'>
-							<Tag>Dick</Tag>
-							<Tag>Porn</Tag>
-							<Tag>Tits</Tag>
-						</HStack>
-					</Box>
-				</Box>
-				<Box
-					display='flex'
-					flexDirection='row'
-					background='gray.700'
-					rounded='base'
-					overflow='hidden'
-				>
-					<Box p='4' flex='1'>
-						<Heading fontSize='xl' marginBottom='2'>
-							Dick suckers
-						</Heading>
-						<Text>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum accusantium quasi
-							neque deleniti pariatur repellendus nulla adipisci reiciendis mollitia obcaecati fuga,
-							culpa delectus magni eligendi!
-						</Text>
-						<HStack marginTop='4'>
-							<Tag>Dick</Tag>
-							<Tag>Porn</Tag>
-							<Tag>Tits</Tag>
-						</HStack>
-					</Box>
-				</Box>
-				<Box
-					display='flex'
-					flexDirection='row'
-					background='gray.700'
-					rounded='base'
-					overflow='hidden'
-				>
-					<Box p='4' flex='1'>
-						<Heading fontSize='xl' marginBottom='2'>
-							Dick suckers
-						</Heading>
-						<Text>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum accusantium quasi
-							neque deleniti pariatur repellendus nulla adipisci reiciendis mollitia obcaecati fuga,
-							culpa delectus magni eligendi!
-						</Text>
-						<HStack marginTop='4'>
-							<Tag>Dick</Tag>
-							<Tag>Porn</Tag>
-							<Tag>Tits</Tag>
-						</HStack>
-					</Box>
-				</Box>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
+				<TeamCard heading='Dick Suckers'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eius aut repellendus
+					fugit, similique soluta deserunt minima quia minus vitae molestiae magni recusandae cumque
+					accusantium laborum culpa, ex rem error?
+				</TeamCard>
 			</Grid>
 		</Flex>
 	);

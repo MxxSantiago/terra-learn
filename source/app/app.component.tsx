@@ -10,6 +10,7 @@ import PrivateRoute from '@/components/utils/private-route';
 import PublicRoute from '@/components/utils/public-route';
 import { authModule } from '@/modules/auth/auth.module';
 import { AuthSelectors } from '@/modules/auth/auth.selectors';
+import TeamPage from '@/components/pages/team-page';
 
 interface AppProps {}
 
@@ -21,6 +22,7 @@ const App: FC<AppProps & AppDefaultProps> = ({ modules }) => {
 	return (
 		<BrowserRouter>
 			<Switch>
+				<PublicRoute path='/team/:teamId' component={TeamPage} />
 				<PrivateRoute
 					allowOn={auth?.credential}
 					path='/'
