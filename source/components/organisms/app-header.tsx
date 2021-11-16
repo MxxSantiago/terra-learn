@@ -1,11 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import type { FC } from 'react';
-import { Box, Flex, Heading, HStack, Link } from '@chakra-ui/layout';
-import { useColorModeValue } from '@chakra-ui/color-mode';
-import { Button, IconButton } from '@chakra-ui/button';
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { Flex, Heading } from '@chakra-ui/layout';
 import { useDisclosure } from '@chakra-ui/hooks';
-import { Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text } from '@chakra-ui/react';
 
 interface AppHeaderProps {}
 
@@ -23,14 +19,11 @@ const AppHeader: FC<AppHeaderProps> = ({}: AppHeaderProps) => {
 			background='gray.700'
 			borderBottom='1px'
 			borderBottomColor='gray.500'
+			zIndex='10'
 		>
 			<Flex>
 				<Heading fontSize='3xl'>TerraLearn</Heading>
 			</Flex>
-			<HStack marginLeft='auto'>
-				<Link>About</Link>
-				<Link>Profile</Link>
-			</HStack>
 		</Flex>
 	);
 };

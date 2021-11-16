@@ -19,6 +19,9 @@ const Aside: FC<AsideProps> = ({}: AsideProps) => {
 				gap='2'
 				border='1px'
 				borderColor='gray.500'
+				position='sticky'
+				top='20'
+				left='20'
 			>
 				<Heading fontSize='xl'>Principal</Heading>
 				<Button justifyContent='flex-start'>Equipos</Button>

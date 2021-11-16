@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import type { FC } from 'react';
@@ -8,7 +8,6 @@ import type { AppDefaultProps } from '@core/types/common';
 
 import PrivateRoute from '@/components/utils/private-route';
 import PublicRoute from '@/components/utils/public-route';
-
 import { authModule } from '@/modules/auth/auth.module';
 import { AuthSelectors } from '@/modules/auth/auth.selectors';
 
@@ -23,18 +22,17 @@ const App: FC<AppProps & AppDefaultProps> = ({ modules }) => {
 		<BrowserRouter>
 			<Switch>
 				<PrivateRoute
-					/* allowOn={auth?.credential} */
-					allowOn={true}
+					allowOn={auth?.credential}
 					path='/'
 					exact
 					component={Main}
-					/* fallback={<Redirect to='/login' />} */
+					fallback={<Redirect to='/login' />}
 				/>
 				<PublicRoute
-					/* disallowOn={auth?.credential} */
+					disallowOn={auth?.credential}
 					path='/'
 					component={Auth}
-					/* fallback={<Redirect to='/' />} */
+					fallback={<Redirect to='/' />}
 				/>
 			</Switch>
 		</BrowserRouter>
