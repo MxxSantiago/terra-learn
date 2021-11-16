@@ -8,7 +8,7 @@ interface PageProps {
 
 const Page: FC<PageProps> = ({ children }) => {
 	return (
-		<Flex as='main' height='100vh' width='full' flexDirection='column' paddingTop='16'>
+		<Flex as='main' direction='column' height='100vh' width='full' paddingTop='16'>
 			{children}
 		</Flex>
 	);
