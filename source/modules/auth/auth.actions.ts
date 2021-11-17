@@ -13,17 +13,30 @@ export class AuthActions extends Actions {
 		this.dispatch({ type: AuthActionsTypes.SIGN_IN });
 		this.authService
 			.signIn(providerKey)
-			.then((credential) => {
+			.then((user) => {
 				this.dispatch({
 					type: AuthActionsTypes.SIGN_IN_SUCCESS,
-					payload: { credential, providerKey },
+					payload: { user, providerKey },
 				});
 			})
-			.catch((error) =>
+			.catch((error) => {
 				this.dispatch({
 					type: AuthActionsTypes.SIGN_IN_FAILURE,
-					payload: error,
-				}),
-			);
+					payload: { error },
+				});
+			});
+	}
+
+	public onAuthStateChanged(callback) {
+		this.authService.onAuthStateChanged((user) => {
+			this.dispatch({
+				type: AuthActionsTypes.ON_AUTH_STATE_CHANGED,
+				payload: callback(user),
+			});
+		});
+	}
+
+	public signOut() {
+		this.dispatch({ type: AuthActionsTypes.SIGN_OUT });
 	}
 }

@@ -5,14 +5,21 @@ export function AuthReducer(state = {}, action) {
 		case AuthActionsTypes.SIGN_IN_SUCCESS: {
 			return {
 				...state,
-				credential: action.payload.credential,
+				user: action.payload.user,
 			};
 		}
 
 		case AuthActionsTypes.SIGN_IN_FAILURE: {
 			return {
 				...state,
-				error: action.payload,
+				error: action.payload.error,
+			};
+		}
+
+		case AuthActionsTypes.ON_AUTH_STATE_CHANGED: {
+			return {
+				...state,
+				user: action.payload,
 			};
 		}
 
